@@ -1,0 +1,16 @@
+[Counterexample]
+
+State 8 file origin.sol line 19 function _MAIN_ thread 0
+----------------------------------------------------
+  a = 0x8000000000000000000000000000000000000000000000000000000000000004
+
+State 9 file origin.sol line 21 function _MAIN_ thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 21 function _MAIN_
+  assertion
+  a == 3
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

@@ -1,0 +1,14 @@
+Underflow (resulting value less than -2**255) happens here.
+Counterexample:
+
+x = (- 57896044618658097711785492504343953926634992332820282019728792003956564819968)
+y = 1
+ = 0
+
+Transaction trace:
+C.constructor()
+C.f((- 57896044618658097711785492504343953926634992332820282019728792003956564819968), 1)
+ --> origin.sol:6:10:
+  |
+6 |             return x - y;
+  |                    ^^^^^

@@ -1,0 +1,25 @@
+Overflow (resulting value larger than 2**256 - 1) happens here.
+Counterexample:
+PRICE_PER_TOKEN = 1000000000000000000
+numTokens = 115792089237316195423570985008687907853269984665640564039458
+
+Transaction trace:
+TokenSaleChallenge.constructor(){ msg.value: 1000000000000000000 }
+State: PRICE_PER_TOKEN = 1000000000000000000
+TokenSaleChallenge.buy(115792089237316195423570985008687907853269984665640564039458){ msg.sender: 0x2297, msg.value: 22 }
+  --> origin.sol:17:30:
+   |
+17 |         require(msg.value == numTokens * PRICE_PER_TOKEN);
+   |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Overflow (resulting value larger than 2**256 - 1) might happen here.
+  --> origin.sol:19:9:
+   |
+19 |         balanceOf[msg.sender] += numTokens;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Overflow (resulting value larger than 2**256 - 1) might happen here.
+  --> origin.sol:27:38:
+   |
+27 |         payable(msg.sender).transfer(numTokens * PRICE_PER_TOKEN);
+   |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^

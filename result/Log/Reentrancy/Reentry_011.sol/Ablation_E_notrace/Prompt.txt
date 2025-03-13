@@ -1,0 +1,23 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+///https://github.com/fsainas/contracts-verification-benchmark/blob/main/contracts/call-wrapper
+//SPDX-License-Identifier: UNLICENSED
+pragma solidity >= 0.8.2;
+
+/// @custom:version reentrant `callwrap`.
+contract CallWrapper {
+    uint data;
+
+    function callwrap(address called) public {
+        /// @custom:preghost function callwrap
+        uint _balance = address(this).balance;
+
+        called.call("");
+
+        /// @custom:postghost function callwrap
+        assert(_balance == address(this).balance);
+    }
+
+}
+
+Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

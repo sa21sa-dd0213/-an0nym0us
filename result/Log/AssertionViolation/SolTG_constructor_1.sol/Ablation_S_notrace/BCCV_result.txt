@@ -1,0 +1,5 @@
+Assertion violation happens here.
+  --> origin.sol:23:9:
+   |
+23 |         assert(a == 3);
+   |         ^^^^^^^^^^^^^^

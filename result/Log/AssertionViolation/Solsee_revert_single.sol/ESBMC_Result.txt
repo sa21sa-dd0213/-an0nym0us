@@ -1,0 +1,17 @@
+[Counterexample]
+
+State 6  thread 0
+----------------------------------------------------
+  _ESBMC_Object__MAIN_ = { .a=20, .b=24, .t=0, .totalSupply=0, .codehash=0, .balance=0,
+    .anon_pad$6=0, .address=0, .anon_pad$8=0 }
+
+State 8 file origin.sol line 19 function vul thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 19 function vul
+  assertion
+  this->a > this->b || this->t != 100
+
+VERIFICATION FAILED
+
+Bug found (k = 2)

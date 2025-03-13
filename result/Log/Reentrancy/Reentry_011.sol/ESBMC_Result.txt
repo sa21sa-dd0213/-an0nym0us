@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 7 file origin.sol line 16 function callwrap thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 16 function callwrap
+  assertion
+  __balance == address(this).balance
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

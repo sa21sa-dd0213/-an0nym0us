@@ -1,0 +1,14 @@
+Assertion violation happens here.
+Counterexample:
+x = 0
+_x = 0
+a = 5
+
+Transaction trace:
+C5.constructor(2, 3)
+State: x = 3
+C5.f5(0)
+  --> origin.sol:22:9:
+   |
+22 |         assert(a == 3);
+   |         ^^^^^^^^^^^^^^

@@ -1,0 +1,13 @@
+Underflow (resulting value less than 0) happens here.
+Counterexample:
+count = 1
+input = 2
+
+Transaction trace:
+IntegerOverflowMinimal.constructor()
+State: count = 1
+IntegerOverflowMinimal.run(2)
+ --> origin.sol:8:9:
+  |
+8 |         count -= input;
+  |         ^^^^^^^^^^^^^^

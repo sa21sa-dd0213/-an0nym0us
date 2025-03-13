@@ -1,0 +1,15 @@
+
+Overflow (resulting value larger than 2**255 - 1) happens here.
+Counterexample:
+
+x = 28948022309329048855892746252171976963317496166410141009864396001978282409984
+y = 2
+ = 0
+
+Transaction trace:
+C.constructor()
+C.f(28948022309329048855892746252171976963317496166410141009864396001978282409984, 2)
+ --> origin.sol:5:10:
+  |
+5 |             return x * y;
+  |                    ^^^^^
