@@ -1,0 +1,9 @@
+solc --model-checker-engine chc --model-checker-timeout 120 --model-checker-targets underflow --model-checker-show-unproved --model-checker-show-unsupported --model-checker-show-proved-safe origin.sol.sol
+
+---------------------------------------------------------------------
+
+Assertion violation happens here.
+  --> origin.sol:24:9:
+   |
+24 |         assert(new_user_balance == old_user_balance + amount);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

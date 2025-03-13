@@ -1,0 +1,31 @@
+Overflow (resulting value larger than 255) happens here.
+Counterexample:
+
+x = 100
+ = 0
+y = 0
+
+Transaction trace:
+C.constructor()
+C.f(0)
+ --> example.sol:7:13:
+  |
+7 |             uint8 y = x * 3;
+  |                       ^^^^^
+
+Overflow (resulting value larger than 255) happens here.
+Counterexample:
+vulnerableContract = 0
+x = 86
+ = 0
+
+Transaction trace:
+Reproduction.constructor(0x0)
+State: vulnerableContract = 0
+Reproduction.setup(86)
+  --> example.sol:27:16:
+   |
+27 |         return x * 3;
+   |                ^^^^^
+
+1 verification condition(s) proved safe! Enable the model checker option "show proved safe" to see all of them.

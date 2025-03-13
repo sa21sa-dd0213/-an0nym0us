@@ -1,0 +1,14 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --base-k-step 3 --k-step 2 --unsigned-overflow-check  --z3
+
+[Counterexample]
+
+file origin.sol line 15 function run
+------------------------
+Violated property:
+  file origin.sol line 15 function run
+  arithmetic overflow on sub
+  !overflow("-", this->count, input)
+
+VERIFICATION FAILED
+
+Bug found (k = 3)

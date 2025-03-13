@@ -1,0 +1,14 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --base-k-step 3 --k-step 2 
+
+[Counterexample]
+
+State 5 file origin.sol line 24 function withdraw thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 24 function withdraw
+  assertion
+  new_user_balance == old_user_balance - amount
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

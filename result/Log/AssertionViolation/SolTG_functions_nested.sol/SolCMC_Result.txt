@@ -1,0 +1,20 @@
+solc --model-checker-engine chc --model-checker-timeout 120 --model-checker-targets assert --model-checker-show-unproved --model-checker-show-unsupported --model-checker-show-proved-safe origin.sol.sol
+
+---------------------------------------------------------------------
+
+Assertion violation happens here.
+Counterexample:
+x = 2
+
+Transaction trace:
+C.constructor()
+State: x = 0
+C.inc()
+State: x = 1
+C.inc()
+State: x = 2
+C.f()
+ --> origin.sol:7:3:
+  |
+7 |             assert(x < 2);
+  |             ^^^^^^^^^^^^^

@@ -1,0 +1,23 @@
+solc --model-checker-engine chc --model-checker-timeout 120 --model-checker-targets assert --model-checker-show-unproved --model-checker-show-unsupported --model-checker-show-proved-safe origin.sol.sol
+
+---------------------------------------------------------------------
+
+Assertion violation happens here.
+Counterexample:
+
+a = 0
+b = 0
+ = 0
+
+Transaction trace:
+Math.constructor()
+Math.min(0, 0)
+  --> origin.sol:27:13:
+   |
+27 |             assert(b>a);
+   |             ^^^^^^^^^^^
+
+Assertion violation might happen here.
+  --> origin.sol:38:9:
+   |
+38 |         assert(((a & b) + (a ^ b) / 2)*2 == a+b);

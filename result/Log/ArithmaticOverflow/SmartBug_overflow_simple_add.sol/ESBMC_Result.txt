@@ -1,0 +1,19 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --base-k-step 3 --k-step 2 --unsigned-overflow-check  --z3
+
+[Counterexample]
+
+State 9 file example.sol line 8 function add thread 0
+----------------------------------------------------
+Violated property:
+  file example.sol line 8 function add
+Stack trace:
+  sol:@C@Overflow_Add@F@add#14
+  sol:@C@Overflow_Add@_ESBMC_Nondet_Extcall#
+  sol:@C@Overflow_Add@F@_ESBMC_Main_Overflow_Add#
+  sol:@F@_ESBMC_Main#
+  arithmetic overflow on add
+  !overflow("+", this->balance, deposit)
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

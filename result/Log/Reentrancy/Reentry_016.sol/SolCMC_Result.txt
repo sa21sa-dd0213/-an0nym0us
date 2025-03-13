@@ -1,0 +1,9 @@
+solc --model-checker-engine chc --model-checker-solvers eld --model-checker-targets all origin.sol 
+
+---------------------------------------------------------------------
+
+Assertion violation happens here.
+  --> origin.sol:35:9:
+   |
+35 |         assert(msg.sender == a);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^

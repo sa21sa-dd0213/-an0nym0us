@@ -1,0 +1,9 @@
+solc --model-checker-engine chc  --model-checker-targets divByZero  origin.sol.sol
+
+---------------------------------------------------------------------
+
+Division by zero happens here.
+  --> origin.sol:46:13:
+   |
+46 |         y = 10/(x-2)；
+   |             ^^^^^^^^^^

@@ -1,0 +1,9 @@
+ --> origin.sol:45:1:
+   |
+45 | interface CallWrapper {
+   | ^ (Relevant source part starts here and spans across multiple lines).
+Note: The previous declaration is here:
+ --> origin.sol:6:1:
+  |
+6 | contract CallWrapper {
+  | ^ (Relevant source part starts here and spans across multiple lines).

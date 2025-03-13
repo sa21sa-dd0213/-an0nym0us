@@ -1,0 +1,14 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --unbound --show-stacktrace
+
+[Counterexample]
+
+State 5 file origin.sol line 27 function min thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 27 function min
+  assertion
+  b > a
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

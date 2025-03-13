@@ -1,0 +1,30 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --unbound --contract _MAIN_ --show-stacktrace
+
+[Counterexample]
+
+State 6  thread 0
+----------------------------------------------------
+  _ESBMC_Object__MAIN_ = { .a = 0 }
+
+State 7 file origin.sol line 9 function set thread 0
+----------------------------------------------------
+  this->b = 0 
+
+State 8 file origin.sol line 15 function check thread 0
+----------------------------------------------------
+  _a = 3 
+
+State 10 file origin.sol line 19 function check thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 19 function check
+Stack trace:
+  sol:@C@_MAIN_@F@check#46
+  sol:@C@_MAIN_@_ESBMC_Nondet_Extcall#
+  sol:@C@_MAIN_@F@_ESBMC_Main__MAIN_#
+  assertion
+  _a == 4
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

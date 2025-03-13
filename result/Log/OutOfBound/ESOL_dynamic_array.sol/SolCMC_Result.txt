@@ -1,0 +1,18 @@
+solc --model-checker-engine chc --model-checker-timeout 120 --model-checker-targets outOfBounds --model-checker-show-unproved --model-checker-show-unsupported --model-checker-show-proved-safe origin.sol.sol
+
+---------------------------------------------------------------------
+
+Out of bounds access happens here.
+Counterexample:
+i = 0
+n = 0
+a = []
+
+Transaction trace:
+MyContract.constructor()
+State: i = 0
+MyContract.dyn_array_oob_loop(0)
+  --> origin.sol:11:12:
+   |
+11 |     assert(a[0] == 100);
+   |            ^^^^

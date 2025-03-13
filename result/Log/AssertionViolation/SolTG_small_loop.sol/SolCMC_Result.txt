@@ -1,0 +1,17 @@
+solc --model-checker-engine chc --model-checker-timeout 120 --model-checker-targets assert --model-checker-show-unproved --model-checker-show-unsupported --model-checker-show-proved-safe origin.sol.sol
+
+---------------------------------------------------------------------
+
+Assertion violation happens here.
+Counterexample:
+r = 0
+x = 5
+
+Transaction trace:
+Loop1.constructor()
+State: r = 0
+Loop1.enter()
+  --> origin.sol:19:5:
+   |
+19 |     assert (x == r);
+   |     ^^^^^^^^^^^^^^^

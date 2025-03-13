@@ -1,0 +1,23 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --unbound --show-stacktrace
+
+[Counterexample]
+
+State 6 file origin.sol line 23 function j thread 0
+----------------------------------------------------
+  this->x = 100 
+
+State 7 file origin.sol line 29 function i thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 29 function i
+Stack trace:
+  sol:@C@Csm1@F@i#61
+  sol:@C@Csm1@_ESBMC_Nondet_Extcall#
+  sol:@C@Csm1@F@_ESBMC_Main_Csm1#
+  sol:@F@_ESBMC_Main#
+  assertion
+  this->x < 2
+
+VERIFICATION FAILED
+
+Bug found (k = 2)

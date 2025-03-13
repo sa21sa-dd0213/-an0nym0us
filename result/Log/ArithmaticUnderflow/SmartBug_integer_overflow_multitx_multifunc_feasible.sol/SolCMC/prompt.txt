@@ -1,0 +1,54 @@
+### Role  
+You are a blockchain security expert specializing in analyzing vulnerabilities in smart contracts using formal verification.  
+
+### Source Program  
+Below is the source code of a Solidity program that has been proven to be vulnerable:  
+pragma solidity ^0.8.19;
+
+contract IntegerOverflowBenign1 {
+    uint public count = 1;
+
+    function run(uint256 input) public {
+
+        uint res = count - input;
+    }
+}
+
+### Counterexample  
+The verifier SolCMC identified a arithmetic underflow in this program and generated a counterexample detailing the state changes, transaction sequence, violated property, and location of the final violation state:  
+Underflow (resulting value less than 0) happens here.
+Counterexample:
+initialized = 1, count = 1
+input = 2
+ = false
+
+Transaction trace:
+IntegerOverflowMultiTxMultiFuncFeasible.constructor()
+State: initialized = 0, count = 1
+IntegerOverflowMultiTxMultiFuncFeasible.init()
+State: initialized = 1, count = 1
+IntegerOverflowMultiTxMultiFuncFeasible.run(2)
+  --> origin.sol:15:9:
+   |
+15 |         count -= input;
+   |   
+
+### Vulnerability Context
+The violated property, arithmetic underflow, occurs when a value goes below the minimum limit for a data type, causing it to wrap around to a large value. A common approach to trigger an underflow is to subtract a value larger than the stored value.
+
+### Background  
+Real-world vulnerabilities often involve multiple interactions rather than a single self-contained function call. The reproduction contract should reflect this by structuring the exploit as a series of interactions instead of executing it immediately.  
+
+### Task  
+Generate a **realistic** reproduction smart contract named `Reproduction` that interacts with the vulnerable contract to re-trigger the identified vulnerability. If the vulnerable contract calls an external contract through an interface, `Reproduction` **must inherit from that interface** and implement all required functions.  
+
+### Requirements  
+- **Utilize the counterexample and vulnerability context:**  
+  - Extract key function calls, transaction sequence, and final violation conditions.  
+  - Structure the exploit accordingly, ensuring it includes all necessary elements to trigger the issue.  
+- **Maintain Solidity compatibility:** The reproduction contract must match the Solidity version of the source contract and be compilable alongside it.  
+- **Decomposed contract structure:**  
+    - Use an interface-separated (Interaction-Separated)  pattern, where sequential interactions are needed rather than a single function that fully encapsulates the exploit.  Implement separate functions for setup, triggering the vulnerability, and interacting with the vulnerable contract.  
+- **Strict output format:** Output only Solidity code. Do not include explanations, comments, or justifications.  
+
+### Generate the reproduction contract

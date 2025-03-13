@@ -1,0 +1,19 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --base-k-step 3 --k-step 2 --unsigned-overflow-check  --z3
+
+[Counterexample]
+
+State 66 file example.sol line 12 function buy thread 0
+----------------------------------------------------
+Violated property:
+  file example.sol line 12 function buy
+Stack trace:
+  sol:@C@TokenSaleChallenge@F@buy#30
+  sol:@C@TokenSaleChallenge@_ESBMC_Nondet_Extcall#
+  sol:@C@TokenSaleChallenge@F@_ESBMC_Main_TokenSaleChallenge#
+  sol:@F@_ESBMC_Main#
+  arithmetic overflow on add
+  !overflow("+", this->balanceOf[(signed long int)return_value$__address$1], numTokens)
+
+VERIFICATION FAILED
+
+Bug found (k = 2)

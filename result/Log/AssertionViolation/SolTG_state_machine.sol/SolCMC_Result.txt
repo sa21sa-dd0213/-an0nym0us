@@ -1,0 +1,32 @@
+solc --model-checker-engine chc --model-checker-timeout 120 --model-checker-targets assert --model-checker-show-unproved --model-checker-show-unsupported --model-checker-show-proved-safe origin.sol.sol
+
+---------------------------------------------------------------------
+
+Assertion violation happens here.
+Counterexample:
+x = 100
+
+Transaction trace:
+Csma.constructor()
+State: x = 0
+Csma.f()
+State: x = 1
+Csma.h()
+State: x = 2
+Csma.h()
+State: x = 3
+Csma.h()
+State: x = 4
+Csma.h()
+State: x = 5
+Csma.h()
+State: x = 6
+Csma.h()
+State: x = 7
+Csma.j()
+State: x = 100
+Csma.i()
+  --> origin.sol:27:3:
+   |
+27 |            assert(x < 9);
+   |            ^^^^^^^^^^^^^

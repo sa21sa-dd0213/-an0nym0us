@@ -1,0 +1,19 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --base-k-step 3 --k-step 2 --unsigned-overflow-check  --z3 
+
+[Counterexample]
+
+file origin.sol line 13 function add
+------------------------
+Violated property:
+  file origin.sol line 13 function add
+Stack trace:
+  sol:@C@Overflow@F@add#20
+  sol:@C@Overflow@_ESBMC_Nondet_Extcall#
+  sol:@C@Overflow@F@_ESBMC_Main_Overflow#
+  sol:@F@_ESBMC_Main#
+  arithmetic overflow on add
+  !overflow("+", this->sellerBalance, value)
+
+VERIFICATION FAILED
+
+Bug found (k = 3)

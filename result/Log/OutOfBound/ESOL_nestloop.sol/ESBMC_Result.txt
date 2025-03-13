@@ -1,0 +1,16 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --show-stacktrace --overflow-check
+
+[Counterexample]
+
+State 13  thread 0
+----------------------------------------------------
+  _ESBMC_Object_Base = { .a = 0 }
+
+State 18  thread 0
+----------------------------------------------------
+Violated property:
+  dereference failure: NULL pointer
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

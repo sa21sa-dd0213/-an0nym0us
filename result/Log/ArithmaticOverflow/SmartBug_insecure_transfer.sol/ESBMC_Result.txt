@@ -1,0 +1,14 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc  --k-step 2 --overflow-check  --no-pointer-check  --unbound --16
+
+[Counterexample]
+
+State 17 file example.sol line 10 function transfer thread 0
+----------------------------------------------------
+Violated property:
+  file example.sol line 10 function transfer
+  arithmetic overflow on sub
+  !overflow("-", this->balanceOf[(signed long int)return_value$__address$3], _value)
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

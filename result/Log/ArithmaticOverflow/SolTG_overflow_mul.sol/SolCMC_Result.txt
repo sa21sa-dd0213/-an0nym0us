@@ -1,0 +1,24 @@
+solc --model-checker-engine chc --model-checker-timeout 120 --model-checker-targets overflow --model-checker-show-unproved --model-checker-show-unsupported --model-checker-show-proved-safe origin.sol.sol
+
+---------------------------------------------------------------------
+
+Overflow (resulting value larger than 255) happens here.
+Counterexample:
+
+x = 100
+ = 0
+y = 0
+
+Transaction trace:
+C.constructor()
+C.f(0)
+ --> origin.sol:7:13:
+  |
+7 |             uint8 y = x * 3;
+  |                       ^^^^^
+
+Overflow (resulting value larger than 255) check is safe!
+  --> origin.sol:10:7:
+   |
+10 |            y = x * 4;
+   |                ^^^^^

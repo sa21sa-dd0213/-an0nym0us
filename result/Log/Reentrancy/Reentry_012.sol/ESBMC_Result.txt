@@ -1,0 +1,14 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --base-k-step 3 --k-step 2 --unbound
+
+[Counterexample]
+
+State 7 file origin.sol line 16 function callwrap thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 16 function callwrap
+  assertion
+  __balance == address(this).balance
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

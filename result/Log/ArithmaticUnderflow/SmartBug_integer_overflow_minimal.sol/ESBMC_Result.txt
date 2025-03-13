@@ -1,0 +1,19 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --base-k-step 3 --k-step 2 --unsigned-overflow-check  --z3 --show-stacktrace --compact-trace --simplify-trace
+
+[Counterexample]
+
+State 15 file origin.sol line 9 function run thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 9 function run
+Stack trace:
+  sol:@C@IntegerOverflowMinimal@F@run#14
+  sol:@C@IntegerOverflowMinimal@_ESBMC_Nondet_Extcall#
+  sol:@C@IntegerOverflowMinimal@F@_ESBMC_Main_IntegerOverflowMinimal#
+  sol:@F@_ESBMC_Main#
+  arithmetic overflow on sub
+  !overflow("-", this->count, input)
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

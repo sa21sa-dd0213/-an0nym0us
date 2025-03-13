@@ -1,0 +1,19 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --show-stacktrace
+
+[Counterexample]
+
+file origin.sol line 18 function enter
+------------------------
+Violated property:
+  file origin.sol line 18 function enter
+Stack trace:
+  sol:@C@Loop1@F@enter#44
+  sol:@C@Loop1@_ESBMC_Nondet_Extcall#
+  sol:@C@Loop1@F@_ESBMC_Main_Loop1#
+  sol:@F@_ESBMC_Main#
+  assertion
+  x == this->r
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

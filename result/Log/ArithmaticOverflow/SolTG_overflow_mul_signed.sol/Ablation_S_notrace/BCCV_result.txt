@@ -1,0 +1,16 @@
+Overflow (resulting value larger than 255) happens here.
+Counterexample:
+
+x = 100
+ = 0
+y = 0
+
+Transaction trace:
+C.constructor()
+C.f(0)
+ --> example.sol:7:13:
+  |
+7 |             uint8 y = x * 3;
+  |                       ^^^^^
+
+1 verification condition(s) proved safe! Enable the model checker option "show proved safe" to see all of them.

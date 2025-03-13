@@ -1,0 +1,14 @@
+solc --model-checker-engine chc --model-checker-timeout 120 --model-checker-targets outOfBounds --model-checker-show-unproved --model-checker-show-unsupported --model-checker-show-proved-safe origin.sol.sol
+
+---------------------------------------------------------------------
+
+Out of bounds access happens here.
+Counterexample:
+test2 = []
+
+Transaction trace:
+Base.constructor()
+ --> origin.sol:7:16:
+  |
+7 |         assert(test2[1] == 0);
+  |                ^^^^^^^^

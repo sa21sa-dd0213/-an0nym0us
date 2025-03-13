@@ -1,0 +1,10 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --base-k-step 3 --k-step 2 --unsigned-overflow-check  --z3 
+
+[Counterexample]
+
+State 2  thread 0
+----------------------------------------------------
+Violated property:
+  unwinding assertion loop 189
+
+VERIFICATION FAILED

@@ -1,0 +1,9 @@
+solc --model-checker-engine chc --model-checker-timeout 120 --model-checker-targets assert --model-checker-show-unproved --model-checker-show-unsupported --model-checker-show-proved-safe origin.sol.sol
+
+---------------------------------------------------------------------
+
+Assertion violation happens here.
+  --> origin.sol:15:9:
+   |
+15 |         assert(x < 2);
+   |         ^^^^^^^^^^^^^

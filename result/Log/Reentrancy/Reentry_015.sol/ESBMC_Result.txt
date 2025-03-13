@@ -1,0 +1,14 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --base-k-step 3 --k-step 2 --unbound
+
+[Counterexample]
+
+State 7 file origin.sol line 219 function invariant thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 219 function invariant
+  assertion
+  ___sent <= initial_deposit
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

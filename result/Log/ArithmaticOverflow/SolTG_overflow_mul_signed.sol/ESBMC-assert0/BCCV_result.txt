@@ -1,0 +1,8 @@
+[Counterexample]
+
+State 2  thread 0
+----------------------------------------------------
+Violated property:
+  unwinding assertion loop 189
+
+VERIFICATION FAILED

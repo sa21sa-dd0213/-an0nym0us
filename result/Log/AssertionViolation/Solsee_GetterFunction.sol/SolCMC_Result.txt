@@ -1,0 +1,15 @@
+solc --model-checker-engine chc --model-checker-timeout 120 --model-checker-targets assert --model-checker-show-unproved --model-checker-show-unsupported --model-checker-show-proved-safe origin.sol.sol
+
+---------------------------------------------------------------------
+
+Assertion violation happens here.
+Counterexample:
+bank = 0
+a = 0
+
+Transaction trace:
+_MAIN_.constructor()
+  --> origin.sol:22:9:
+   |
+22 |         assert(a == 4);
+   |         ^^^^^^^^^^^^^^

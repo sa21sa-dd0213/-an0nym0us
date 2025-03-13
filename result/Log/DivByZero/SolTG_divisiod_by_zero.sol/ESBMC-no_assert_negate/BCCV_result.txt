@@ -1,0 +1,14 @@
+[Counterexample]
+
+------------------------
+  _ESBMC_Object_C = { .codehash = 0 }
+
+------------------------
+Violated property:
+
+  division by zero
+  b != 0
+
+VERIFICATION FAILED
+
+Bug found (k = 3)

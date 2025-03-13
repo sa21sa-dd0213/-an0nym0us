@@ -1,0 +1,12 @@
+Overflow (resulting value larger than 255) happens here.
+Counterexample:
+x = 100, y = 240, z = 3, sum = 0
+
+Transaction trace:
+MyContract.constructor()
+State: x = 0, y = 0, z = 0, sum = 0
+MyContract.func_overflow()
+  --> origin.sol:15:13:
+   |
+15 |       sum = x + y + z;
+   |             ^^^^^

@@ -1,0 +1,12 @@
+[Counterexample]
+
+file origin.sol line 15 function _MAIN_
+------------------------
+Violated property:
+  file origin.sol line 15 function _MAIN_
+  assertion
+  (signed int)c == (signed int)a + (signed int)b
+
+VERIFICATION FAILED
+
+Bug found (k = 3)

@@ -1,0 +1,13 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc  --k-step 2 --overflow-check  --no-pointer-check  --unbound
+[Counterexample]
+
+file origin.sol line 7 function add
+------------------------
+Violated property:
+  file origin.sol line 7 function add
+  arithmetic overflow on add
+  !overflow("+", this->sellerBalance, value)
+
+VERIFICATION FAILED
+
+Bug found (k = 3)

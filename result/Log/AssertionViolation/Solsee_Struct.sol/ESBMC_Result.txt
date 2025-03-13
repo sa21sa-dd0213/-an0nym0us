@@ -1,0 +1,23 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --unbound --show-stacktrace
+
+[Counterexample]
+
+State 14 file origin.sol line 19 function test thread 0
+----------------------------------------------------
+  happy.dd = 2 
+
+State 16 file origin.sol line 24 function test thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 24 function test
+Stack trace:
+  sol:@C@Bank@F@test#68
+  sol:@C@Bank@_ESBMC_Nondet_Extcall#
+  sol:@C@Bank@F@_ESBMC_Main_Bank#
+  sol:@F@_ESBMC_Main#
+  assertion
+  happy.cc + happy.dd == 4
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

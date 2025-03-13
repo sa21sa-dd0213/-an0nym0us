@@ -1,0 +1,21 @@
+./esbmc --sol origin.sol origin.solast --unbound --incremental-bmc --base-k-step 3 --k-step 2
+
+[Counterexample]
+
+------------------------
+  _ESBMC_Object_C = { .codehash = 0 }
+
+------------------------
+Violated property:
+
+Stack trace:
+  sol:@C@C@F@f#15
+  sol:@C@C@_ESBMC_Nondet_Extcall#
+  sol:@C@C@F@_ESBMC_Main_C#
+  sol:@F@_ESBMC_Main#
+  division by zero
+  y != 0
+
+VERIFICATION FAILED
+
+Bug found (k = 3)

@@ -1,0 +1,12 @@
+./esbmc --sol origin.sol origin.solast --incremental-bmc --base-k-step 3 --k-step 2 --unsigned-overflow-check  --z3 
+
+[Counterexample]
+
+State 3 file example.sol line 11 function f thread 0
+----------------------------------------------------
+Violated property:
+  file example.sol line 11 function f
+  assertion
+  (signed int)y == 0
+
+VERIFICATION FAILED
