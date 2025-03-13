@@ -1,0 +1,16 @@
+Assertion violation happens here.
+Counterexample:
+target = 0
+
+Transaction trace:
+ReproduceVuln.constructor(0x0)
+State: target = 0
+ReproduceVuln.exploit()
+    cs4.f() -- trusted external call
+    cs4.f() -- trusted external call
+    cs4.f() -- trusted external call
+    cs4.g() -- trusted external call
+ --> origin.sol:9:3:
+  |
+9 |             assert(x <= 2);
+  |             ^^^^^^^^^^^^^^

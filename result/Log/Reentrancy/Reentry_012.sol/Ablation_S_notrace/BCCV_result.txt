@@ -1,0 +1,18 @@
+
+Assertion violation happens here.
+Counterexample:
+data = 0
+called = 0x0
+_balance = 1
+
+Transaction trace:
+CallWrapper.constructor()
+State: data = 0
+CallWrapper.callwrap(0x0)
+    called.call("") -- untrusted external call, synthesized as:
+        CallWrapper.callwrap(0x0) -- reentrant call
+            called.call("") -- untrusted external call
+  --> origin.sol:16:9:
+   |
+16 |         assert(_balance == address(this).balance);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

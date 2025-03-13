@@ -1,0 +1,14 @@
+Assertion violation happens here.
+Counterexample:
+a = 3, b = 0
+_a = 3
+
+Transaction trace:
+_MAIN_.constructor()
+State: a = 0, b = 0
+_MAIN_.check()
+    _MAIN_.set() -- internal call
+  --> origin.sol:19:9:
+   |
+19 |         assert(_a == 4);
+   |         ^^^^^^^^^^^^^^^

@@ -1,0 +1,13 @@
+Building error trace
+
+[Counterexample]
+
+State 18 file example.sol line 8 function add thread 0
+----------------------------------------------------
+Violated property:
+  file example.sol line 8 function add
+  !overflow("+", this->balanceee, deposit)
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

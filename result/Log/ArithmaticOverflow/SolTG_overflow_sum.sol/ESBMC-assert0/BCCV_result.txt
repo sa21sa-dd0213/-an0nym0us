@@ -1,0 +1,8 @@
+[Counterexample]
+
+State 6 file example.sol line 40 function triggerVulnerability thread 0
+----------------------------------------------------
+Violated property:
+  file example.sol line 40 function triggerVulnerability
+  assertion
+  (signed int)y == 0

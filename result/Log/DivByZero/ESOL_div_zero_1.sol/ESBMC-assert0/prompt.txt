@@ -1,0 +1,98 @@
+### Role  
+You are a blockchain security expert specializing in analyzing vulnerabilities in smart contracts using formal verification.  
+
+### Source Program  
+Below is the source code of a Solidity program that has been proven to be vulnerable:  
+pragma solidity ^0.8.0;
+
+contract Base {
+    int ret;
+    int p;
+    int q;
+    int n;
+    int phi;
+    int e;
+    int d;
+
+    function isPrime(int n) public pure returns (bool) {
+        int i;
+        for (i = 2; i <= n / 2; ++i) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function gcd(int a, int b) public pure returns (int) {
+        int temp;
+        while (b != 0) {
+            temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    function test(int rand) public {
+        //Generating two prime numbers
+        p = (rand % 100) + 1;
+        while (!isPrime(p)) {
+            p = (rand % 100) + 1;
+        }
+        q = (rand % 100) + 1;
+        while (!isPrime(q)) {
+            p = (rand % 100) + 1;
+        }
+        n = p * q;
+        phi = (p - 1) * (q - 1);
+
+        //Choosing a public key
+        e = rand % phi;
+        while (gcd(e, phi) != 1) {
+            p = (rand % 100) + 1;
+        }
+
+        //Calculating private key
+        int k = 1;
+        while (true) {
+            k = k + phi;
+            if (k % e == 0) {
+                d = k / e;
+            }
+        }
+    }
+}
+
+### Counterexample  
+The verifier ESBMC identified a division-by-zero in this program and generated a counterexample detailing the state changes, transaction sequence, violated property, and location of the final violation state:  
+State 10 file origin.sol line 46 function test thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 46 function test
+  division by zero
+  this->phi != 0
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+### Vulnerability Context
+The violated property, division-by-zero, occurs when a contract attempts to divide a number by zero, resulting in a runtime exception and contract execution failure. A common approach to trigger a division-by-zero is to pass zero as a divisor in a function that performs division.
+
+### Background  
+Real-world vulnerabilities often involve multiple interactions rather than a single self-contained function call. The reproduction contract should reflect this by structuring the exploit as a series of interactions instead of executing it immediately.  
+
+### Task  
+Generate a **realistic** reproduction smart contract named `Reproduction` that interacts with the vulnerable contract to re-trigger the identified vulnerability. If the vulnerable contract calls an external contract through an interface, `Reproduction` **must inherit from that interface** and implement all required functions.  
+
+### Requirements  
+- **Utilize the counterexample and vulnerability context:**  
+  - Extract key function calls, transaction sequence, and final violation conditions.  
+  - Structure the exploit accordingly, ensuring it includes all necessary elements to trigger the issue.  
+- **Maintain Solidity compatibility:** The reproduction contract must match the Solidity version of the source contract and be compilable alongside it.  
+- **Decomposed contract structure:**  
+    - Use an interface-separated (Interaction-Separated)  pattern, where sequential interactions are needed rather than a single function that fully encapsulates the exploit.  Implement separate functions for setup, triggering the vulnerability, and interacting with the vulnerable contract.  
+- **Strict output format:** Output only Solidity code. Do not include explanations, comments, or justifications.  
+
+### Generate the reproduction contract

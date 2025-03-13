@@ -1,0 +1,10 @@
+Out of bounds access happens here.
+Counterexample:
+test2 = []
+
+Transaction trace:
+Base.constructor()
+ --> origin.sol:7:16:
+  |
+7 |         assert(test2[1] == 0);
+  |                ^^^^^^

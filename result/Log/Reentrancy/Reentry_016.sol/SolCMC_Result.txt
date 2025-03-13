@@ -1,0 +1,5 @@
+Assertion violation happens here.
+  --> origin.sol:33:9:
+   |
+35 |         assert(msg.sender == a);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^

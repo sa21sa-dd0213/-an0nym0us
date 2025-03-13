@@ -1,0 +1,13 @@
+Overflow (resulting value larger than 2**256 - 1) happens here.
+Counterexample:
+count = 1
+input = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+
+Transaction trace:
+IntegerOverflowAdd.constructor()
+State: count = 1
+IntegerOverflowAdd.run(115792089237316195423570985008687907853269984665640564039457584007913129639935)
+ --> origin.sol:8:9:
+  |
+8 |         count += input;
+  |         ^^^^^^^^^^^^^^

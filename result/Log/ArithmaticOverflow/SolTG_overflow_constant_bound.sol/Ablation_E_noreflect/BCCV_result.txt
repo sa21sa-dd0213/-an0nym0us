@@ -1,0 +1,18 @@
+[Counterexample]
+
+State 54  thread 0
+----------------------------------------------------
+  _ESBMC_Object_OverflowVulnerable = { .balances=&dynamic_5_array[0], .anon_pad$1=0, .codehash=0,
+    .balance=0, .anon_pad$4=0, .address=0,
+    .balances_key=0 }
+
+State 64 file origin.sol line 17 function deposit thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 17 function deposit
+  arithmetic overflow on add
+  !overflow("+", this->balances[(signed long int)return_value$__ESBMC_findKeyUint$1], amount)
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

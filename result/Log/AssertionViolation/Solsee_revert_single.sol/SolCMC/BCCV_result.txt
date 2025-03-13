@@ -1,0 +1,15 @@
+Assertion violation happens here.
+Counterexample:
+a = 20, b = 24, t = 100, totalSupply = 100
+
+Transaction trace:
+_MAIN_.constructor()
+State: a = 20, b = 24, t = 0, totalSupply = 0
+_MAIN_.test(1, 0)
+State: a = 20, b = 24, t = 0, totalSupply = 100
+_MAIN_.vul()
+    _MAIN_.getTotalSupply() -- internal call
+  --> origin.sol:19:9:
+   |
+19 |         assert(a > b || t != 100);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^

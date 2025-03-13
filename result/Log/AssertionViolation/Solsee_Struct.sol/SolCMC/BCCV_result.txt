@@ -1,0 +1,13 @@
+Assertion violation happens here.
+Counterexample:
+a = [0, 0, 0, 0, 0], b = 0, gg = {cc: 0, dd: 0}
+happy = {cc: 1, dd: 2}
+
+Transaction trace:
+Bank.constructor()
+State: a = [0, 0, 0, 0, 0], b = 0, gg = {cc: 0, dd: 0}
+Bank.test()
+  --> origin.sol:22:9:
+   |
+22 |         assert(happy.cc + happy.dd == 4);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

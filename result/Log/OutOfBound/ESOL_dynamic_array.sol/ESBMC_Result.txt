@@ -1,0 +1,20 @@
+[Counterexample]
+
+State 15 file origin.sol line 7 function dyn_array_oob_loop thread 0
+----------------------------------------------------
+  a = 0
+
+State 22 file origin.sol line 8 function dyn_array_oob_loop thread 0
+----------------------------------------------------
+  this->i = 0 (00000000)
+
+State 23 file origin.sol line 11 function dyn_array_oob_loop thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 11 function dyn_array_oob_loop
+  dereference failure: NULL pointer
+  (signed int)(a[0]) == 100
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

@@ -1,0 +1,12 @@
+[Counterexample]
+
+file origin.sol line 15 function run
+------------------------
+Violated property:
+  file origin.sol line 15 function run
+  arithmetic overflow on sub
+  !overflow("-", this->count, input)
+
+VERIFICATION FAILED
+
+Bug found (k = 3)

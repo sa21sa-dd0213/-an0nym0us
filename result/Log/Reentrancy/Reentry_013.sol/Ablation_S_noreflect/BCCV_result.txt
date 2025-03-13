@@ -1,0 +1,16 @@
+Assertion violation happens here.
+Counterexample:
+data = 1
+called = 0x0
+_data = 0
+
+Transaction trace:
+CallWrapper.constructor()
+State: data = 0
+CallWrapper.callwrap(0x0)
+    called.call("") -- untrusted external call, synthesized as:
+        CallWrapper.modifystorage(1) -- reentrant call
+  --> origin.sol:16:9:
+   |
+16 |         assert(_data == data);
+   |         ^^^^^^^^^^^^^^^^^^^^^
