@@ -1,0 +1,11 @@
+Assertion violation happens here.
+Counterexample:
+bank = 0
+a = 0
+
+Transaction trace:
+_MAIN_.constructor()
+  --> origin.sol:22:9:
+   |
+22 |         assert(a == 4);
+   |         ^^^^^^^^^^^^^^

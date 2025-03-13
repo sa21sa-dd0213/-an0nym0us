@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 7 file origin.sol line 37 function invariant thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 37 function invariant
+  assertion
+  (unsigned _ExtInt(256))return_value$_nondet_uint$1 != this->saved
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

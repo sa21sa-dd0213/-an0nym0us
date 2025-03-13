@@ -1,0 +1,16 @@
+Underflow (resulting value less than 0) happens here.
+Counterexample:
+initialized = 1, count = 1
+input = 2
+ = false
+
+Transaction trace:
+IntegerOverflowMultiTxMultiFuncFeasible.constructor()
+State: initialized = 0, count = 1
+IntegerOverflowMultiTxMultiFuncFeasible.init()
+State: initialized = 1, count = 1
+IntegerOverflowMultiTxMultiFuncFeasible.run(2)
+  --> origin.sol:15:9:
+   |
+15 |         count -= input;
+   |   

@@ -1,0 +1,24 @@
+[Counterexample]
+
+State 15 file origin.sol line 8 function func_loop thread 0
+----------------------------------------------------
+  this->x = 2 (00000010)
+
+State 17 file origin.sol line 10 function func_loop thread 0
+----------------------------------------------------
+  this->x = 1 (00000001)
+
+State 21 file origin.sol line 10 function func_loop thread 0
+----------------------------------------------------
+  this->x = 0 (00000000)
+
+State 24 file origin.sol line 10 function func_loop thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 10 function func_loop
+  arithmetic overflow on sub
+  !overflow("-", this->x, 1)
+
+VERIFICATION FAILED
+
+Bug found (k = 3)

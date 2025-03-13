@@ -1,0 +1,25 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+pragma solidity ^0.8.0;
+
+contract Base {
+    uint[] public a;
+
+    function SelectionSort(uint array_size) public {
+        uint i;
+        uint j;
+        uint min;
+        uint temp;
+        for (i = 0; i < array_size - 1; ++i) {
+            min = i;
+            for (j = i + 1; j < array_size; ++j) {
+                if (a[j] < a[min]) min = j;
+            }
+            temp = a[i];
+            a[i] = a[min];
+            a[min] = temp;
+        }
+    }
+}
+
+Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

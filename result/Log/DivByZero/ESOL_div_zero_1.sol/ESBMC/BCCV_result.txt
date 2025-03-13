@@ -1,0 +1,10 @@
+State 10 file origin.sol line 46 function test thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 46 function test
+  division by zero
+  this->phi != 0
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

@@ -1,0 +1,18 @@
+[Counterexample]
+
+State 13  thread 0
+----------------------------------------------------
+  _ESBMC_Object_IntegerOverflowMultiTxOneFuncFeasible = { .initialized=0, .count=1, .codehash=0, .balance=0,
+    .anon_pad$4=0, .address=0 }
+
+State 16 file origin.sol line 12 function run thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 12 function run
+  arithmetic overflow on sub
+  !overflow("-", this->count, input)
+
+
+VERIFICATION FAILED
+
+Bug found (k = 2)

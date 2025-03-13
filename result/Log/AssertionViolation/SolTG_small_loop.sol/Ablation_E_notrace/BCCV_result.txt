@@ -1,0 +1,40 @@
+   [Counterexample]
+
+State 8  thread 0
+----------------------------------------------------
+  _ESBMC_Object_Reproduction = { .loop1 = { .r = 0 } }
+
+State 10 file origin.sol line 7 function mini thread 0
+----------------------------------------------------
+  this->r = 0 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000)
+
+State 11 file origin.sol line 10 function mini thread 0
+----------------------------------------------------
+  this->r = _ESBMC_Object_Reproduction.loop1.r + 1
+
+State 12 file origin.sol line 10 function mini thread 0
+----------------------------------------------------
+  this->r = _ESBMC_Object_Reproduction.loop1.r + 1
+
+State 13 file origin.sol line 10 function mini thread 0
+----------------------------------------------------
+  this->r = _ESBMC_Object_Reproduction.loop1.r + 1
+
+State 14 file origin.sol line 10 function mini thread 0
+----------------------------------------------------
+  this->r = _ESBMC_Object_Reproduction.loop1.r + 1
+
+State 15 file origin.sol line 10 function mini thread 0
+----------------------------------------------------
+  this->r = _ESBMC_Object_Reproduction.loop1.r + 1
+
+State 16 file origin.sol line 18 function enter thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 18 function enter
+  assertion
+  x != this->r
+
+VERIFICATION FAILED
+
+Bug found (k = 7)

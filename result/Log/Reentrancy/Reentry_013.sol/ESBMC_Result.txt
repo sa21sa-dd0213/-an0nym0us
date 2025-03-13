@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 6 file origin.sol line 16 function callwrap thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 16 function callwrap
+  assertion
+  _data == this->data
+
+VERIFICATION FAILED
+
+Bug found (k = 2)

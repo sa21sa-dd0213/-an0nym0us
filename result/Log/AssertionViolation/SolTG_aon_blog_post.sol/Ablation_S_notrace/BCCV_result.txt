@@ -1,0 +1,5 @@
+Assertion violation might happen here.
+  --> origin.sol:66:9:
+   |
+66 |         assert(!f);
+   |         ^^^^^^^^^^

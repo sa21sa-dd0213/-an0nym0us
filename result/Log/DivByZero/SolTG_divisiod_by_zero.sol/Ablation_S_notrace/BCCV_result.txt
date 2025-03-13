@@ -1,0 +1,29 @@
+Division by zero happens here.
+Counterexample:
+
+a = 0
+b = 0
+ = 0
+
+Transaction trace:
+C.constructor()
+C.div(0, 0)
+ --> origin.sol:5:16:
+  |
+5 |         return a / b;
+  |                ^^^^^
+
+Division by zero happens here.
+Counterexample:
+
+a = 0
+b = 0
+ = 0
+
+Transaction trace:
+C.constructor()
+C.mod(0, 0)
+ --> origin.sol:9:16:
+  |
+9 |         return a % b;
+  |                ^^^^^

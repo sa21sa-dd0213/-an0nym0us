@@ -1,0 +1,19 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+pragma solidity >=0.6.0;
+
+contract _MAIN_ {
+    constructor () public {
+        uint8 a = 255;
+        uint8 b = 255;
+
+        uint8 c = a + b;
+
+        assert(c == 254);
+        assert(c == a + b);
+        assert(c > 255);
+
+    }
+}
+
+Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

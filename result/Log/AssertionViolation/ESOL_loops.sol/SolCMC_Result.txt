@@ -1,0 +1,5 @@
+Assertion violation might happen here.
+  --> origin.sol:14:5:
+   |
+14 |     assert (sum < 25);
+   |     ^^^^^^^^^^^^^^^^^

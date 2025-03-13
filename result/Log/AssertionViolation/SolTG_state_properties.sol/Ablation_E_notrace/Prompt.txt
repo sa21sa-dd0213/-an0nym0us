@@ -1,0 +1,33 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.0;
+
+contract Robot {
+    int x = 0;
+    int y = 0;
+
+    function moveLeftUp()  public {
+        --x;
+        ++y;
+    }
+
+    function moveLeftDown()  public {
+        --x;
+        --y;
+    }
+
+    function moveRightUp()  public {
+        ++x;
+        ++y;
+    }
+
+    function moveRightDown()  public {
+        ++x;
+        --y;
+    }
+
+    function reach_2_4() public view {
+    assert(!(x == 2 && y == 4));
+}
+}Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

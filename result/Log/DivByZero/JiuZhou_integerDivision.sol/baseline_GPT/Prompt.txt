@@ -1,0 +1,32 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+
+contract getWageNumber {
+    uint256 public coefficient;
+    uint256 public DailyWage;
+    address public boss;
+
+    constructor() public{
+        DailyWage = 100;
+        coefficient = 3;
+        boss = msg.sender;
+    }
+
+    function setDailyWage(uint256 _wage) external {
+		require(msg.sender == boss);
+        DailyWage = _wage;
+    }
+
+    function setCoefficient(uint256 _co) external {
+		require(msg.sender == boss);
+        coefficient = _co;
+    }
+
+    function calculateWage(uint256 dayNumber) external view  {
+        require(msg.sender == boss);
+		uint256 baseWage = DailyWage / coefficient;
+
+    }
+}
+
+Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

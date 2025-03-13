@@ -1,0 +1,14 @@
+Assertion violation happens here.
+Counterexample:
+a = 7629, y = (- 1)
+tmp = 2
+
+Transaction trace:
+B8.constructor()
+State: a = 7629, y = 0
+B8.f8()
+    A8.get8() -- trusted external call
+  --> origin.sol:29:3:
+   |
+29 |            assert(y > 0);
+   |            ^^^^^^^^^^^^^

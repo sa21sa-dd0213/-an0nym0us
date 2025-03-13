@@ -1,0 +1,15 @@
+[Counterexample]
+
+State 13  thread 0
+----------------------------------------------------
+  _ESBMC_Object_C = { .a = 0 }
+
+State 16  thread 0
+----------------------------------------------------
+Violated property:
+
+  dereference failure: NULL pointer
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

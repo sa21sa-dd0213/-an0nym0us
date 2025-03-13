@@ -1,0 +1,18 @@
+[Counterexample]
+
+State 6  thread 0
+----------------------------------------------------
+  _ESBMC_Object_C = { .a=0, .b=0, .c=0, .d=0, .e=0, .f=0, .anon_pad$6=0, .codehash=0,
+    .balance=0, .anon_pad$9=0, .address=0,
+    .anon_pad$11=0 }
+
+State 7 file origin.sol line 36 function is_not_solved thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 36 function is_not_solved
+  assertion
+  !this->f
+
+VERIFICATION FAILED
+
+Bug found (k = 7)

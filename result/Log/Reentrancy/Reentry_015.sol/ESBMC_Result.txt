@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 7 file origin.sol line 219 function invariant thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 219 function invariant
+  assertion
+  ___sent <= initial_deposit
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

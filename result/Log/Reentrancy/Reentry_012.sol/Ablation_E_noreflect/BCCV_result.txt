@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 2 file origin.sol line 16 function callwrap thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 16 function callwrap
+  assertion
+  _balance == (unsigned _ExtInt(256))return_value$_nondet_uint$2
+
+VERIFICATION FAILED
+
+Bug found (k = 2)

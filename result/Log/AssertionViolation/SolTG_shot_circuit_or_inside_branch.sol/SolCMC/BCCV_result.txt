@@ -1,0 +1,35 @@
+Assertion violation happens here.
+Counterexample:
+x = 10
+a = false
+ = false
+b = false
+
+Transaction trace:
+cs6.constructor()
+State: x = 0
+cs6.f()
+State: x = 1
+cs6.f()
+State: x = 2
+cs6.f()
+State: x = 3
+cs6.f()
+State: x = 4
+cs6.f()
+State: x = 5
+cs6.f()
+State: x = 6
+cs6.f()
+State: x = 7
+cs6.f()
+State: x = 8
+cs6.f()
+State: x = 9
+cs6.f()
+State: x = 10
+cs6.g(false)
+  --> origin.sol:18:4:
+   |
+18 |                    assert(x < 10);
+   |                    ^^^^^^^^^^^^^^

@@ -1,0 +1,5 @@
+Assertion violation happens here.
+  --> origin.sol:19:9:
+   |
+19 |         assert(a > b || t != 100);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^

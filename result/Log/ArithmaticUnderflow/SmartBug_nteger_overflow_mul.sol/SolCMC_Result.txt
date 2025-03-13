@@ -1,0 +1,13 @@
+Underflow (resulting value less than 0) happens here.
+Counterexample:
+
+k = 0
+v = 1
+
+Transaction trace:
+IntegerOverflowMappingSym1.constructor()
+IntegerOverflowMappingSym1.init(0, 1)
+ --> origin.sol:8:9:
+  |
+8 |         map[k] -= v;
+  |         ^^^^^^^^^^^

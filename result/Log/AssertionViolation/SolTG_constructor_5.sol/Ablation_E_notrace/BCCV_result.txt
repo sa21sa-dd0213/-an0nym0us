@@ -1,0 +1,18 @@
+[Counterexample]
+
+State 10  thread 0
+----------------------------------------------------
+  _ESBMC_Object_C5 = { .x=0xE5FFCFFC7FFE7F000C0E7DC3F7E0038069C9C21C78FC7FED088804FE1E0FFB3E, .codehash=0,
+    .balance=0, .anon_pad$3=0, .address=0,
+    .anon_pad$5=0 }
+
+State 11 file origin.sol line 22 function f5 thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 22 function f5
+  assertion
+  a == 3
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

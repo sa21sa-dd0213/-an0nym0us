@@ -1,0 +1,19 @@
+Overflow (resulting value larger than 2**256 - 1) happens here.
+  --> origin.sol:17:30:
+   |
+17 |         require(msg.value == numTokens * PRICE_PER_TOKEN);
+   |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Overflow (resulting value larger than 2**256 - 1) happens here.
+Counterexample:
+vulnerableContract = 0, tokenAmount = 115792089237316195423570985008687907853269984665640564039458
+requiredValue = 0
+
+Transaction trace:
+Reproduction.constructor(0x0, 115792089237316195423570985008687907853269984665640564039458)
+State: vulnerableContract = 0, tokenAmount = 115792089237316195423570985008687907853269984665640564039458
+Reproduction.triggerOverflow(){ msg.value: 0 }
+  --> origin.sol:52:33:
+   |
+52 |         uint256 requiredValue = tokenAmount * 1 ether;
+   |                                 ^^^^^^^^^^^^^^^^^^^^^

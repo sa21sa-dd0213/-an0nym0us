@@ -1,0 +1,16 @@
+[Counterexample]
+
+State 19 file origin.sol line 7 function add thread 0
+----------------------------------------------------
+  this->sellerBalance = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF (11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111)
+
+State 20 file origin.sol line 7 function add thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 7 function add
+  arithmetic overflow on add
+  !overflow("+", this->sellerBalance, value)
+
+VERIFICATION FAILED
+
+Bug found (k = 2)

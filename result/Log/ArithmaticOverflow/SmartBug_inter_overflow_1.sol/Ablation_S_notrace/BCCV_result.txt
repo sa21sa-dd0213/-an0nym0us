@@ -1,0 +1,9 @@
+Transaction trace:
+OverflowExploit.constructor(0x0)
+State: target = 0
+OverflowExploit.exploit()
+    Overflow.add(115792089237316195423570985008687907853269984665640564039457584007913129639935) -- trusted external call
+ --> origin.sol:7:9:
+  |
+7 |         sellerBalance += value;
+  |         ^^^^^^^^^^^^^^^^^^^^^^

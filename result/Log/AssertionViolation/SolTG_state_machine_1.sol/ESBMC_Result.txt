@@ -1,0 +1,16 @@
+[Counterexample]
+
+State 6 file origin.sol line 23 function j thread 0
+----------------------------------------------------
+  this->x = 100 
+
+State 7 file origin.sol line 29 function i thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 29 function i
+  assertion
+  this->x < 2
+
+VERIFICATION FAILED
+
+Bug found (k = 2)

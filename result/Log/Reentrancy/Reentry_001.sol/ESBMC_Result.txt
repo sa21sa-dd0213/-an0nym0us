@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 7 file origin.sol line 34 function invariant thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 34 function invariant
+  assertion
+  msg.sender == a
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

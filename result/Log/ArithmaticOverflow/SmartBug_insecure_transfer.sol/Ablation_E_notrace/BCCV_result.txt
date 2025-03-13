@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 5 file /tmp/esbmc-cpp-headers-1428-6973-0b8f/string line 992 column 9 function string thread 0
+----------------------------------------------------
+Violated property:
+  file /tmp/esbmc-cpp-headers-1428-6973-0b8f/string line 992 column 9 function string
+  arithmetic overflow on add
+  !overflow("+", this->_size, 1)
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

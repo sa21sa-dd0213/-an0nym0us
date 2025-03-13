@@ -1,0 +1,10 @@
+[Counterexample]
+
+State 19  thread 0
+----------------------------------------------------
+Violated property:
+
+  arithmetic overflow on mul
+  !overflow("*", x, y)
+
+VERIFICATION FAILED

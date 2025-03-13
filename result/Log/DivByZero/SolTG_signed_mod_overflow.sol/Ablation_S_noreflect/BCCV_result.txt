@@ -1,0 +1,14 @@
+Division by zero happens here.
+Counterexample:
+
+x = 0
+y = 0
+ = 0
+
+Transaction trace:
+C.constructor()
+C.f(0, 0)
+ --> origin.sol:5:10:
+  |
+5 |             return x / y;
+  |                    ^^^^^

@@ -1,0 +1,5 @@
+Division by zero happens here.
+  --> origin.sol:46:13:
+   |
+46 |         e = rand % phi;
+   |             ^^^^^^^^^^

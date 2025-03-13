@@ -1,0 +1,13 @@
+Out of bounds access happens here.
+Counterexample:
+
+a = [100, 100]
+i = 2
+
+Transaction trace:
+MyContract.constructor()
+MyContract.func_array_loop()
+  --> origin.sol:12:9:
+   |
+12 |         a[i] = 100;
+   |         ^^^^

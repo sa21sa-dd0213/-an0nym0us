@@ -1,0 +1,10 @@
+[Counterexample]
+
+State 3 file origin.sol line 11 function f thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 11 function f
+  assertion
+  (signed int)y == 0
+
+VERIFICATION FAILED

@@ -1,0 +1,10 @@
+[Counterexample]
+
+State 10 file origin.sol line 18 function enter thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 18 function enter
+  assertion
+  x == this->r
+
+VERIFICATION FAILED

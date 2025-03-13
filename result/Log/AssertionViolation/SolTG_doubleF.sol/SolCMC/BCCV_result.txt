@@ -1,0 +1,19 @@
+Assertion violation happens here.
+Counterexample:
+x = 3
+ = 0
+
+Transaction trace:
+doubleF.constructor()
+State: x = 0
+doubleF.f()
+State: x = 1
+doubleF.f()
+State: x = 2
+doubleF.f()
+State: x = 3
+doubleF.g()
+  --> origin.sol:14:13:
+   |
+14 |             assert(false);
+   |             ^^^^^^^^^^^^^

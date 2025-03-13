@@ -1,0 +1,14 @@
+Out of bounds access happens here.
+Counterexample:
+a = []
+i = 0
+ = 0
+
+Transaction trace:
+C.constructor()
+State: a = []
+C.r(0)
+ --> origin.sol:6:10:
+  |
+6 |             return a[i];
+  |                    ^^^^

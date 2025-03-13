@@ -1,0 +1,65 @@
+### Role  
+You are a blockchain security expert specializing in analyzing vulnerabilities in smart contracts using formal verification.  
+
+### Source Program  
+Below is the source code of a Solidity program that has been proven to be vulnerable:  
+pragma solidity ^0.8.0;
+
+contract IntegerOverflowAdd {
+    mapping (address => uint256) public balanceOf;
+
+    // INSECURE
+    function transfer(address _to, uint256 _value) public{
+        /* Check if sender has balance */
+        require(balanceOf[msg.sender] >= _value);
+        balanceOf[msg.sender] -= _value;
+        // <yes> <report> ARITHMETIC
+        balanceOf[_to] += _value;
+}
+
+}
+
+### Counterexample  
+The verifier SolCMC identified a arithmetic overflow in this program and generated a counterexample detailing the state changes, transaction sequence, violated property, and location of the final violation state:  
+Overflow (resulting value larger than 2**256 - 1) happens here.
+  --> origin.sol:12:9:
+   |
+12 |         balanceOf[_to] += _value;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^
+Note: Counterexample:
+  <result> = 0x010000000000000000000000000000000000000000000000000000000000000026
+  _to = 7719
+  _value = 21277
+  balanceOf[_to] = 0xFFFFffffFFFFffffFFFFffffFFFFffffFFFFffffFFFFffffFFFFffffFFFFad09
+  balanceOf[msg.sender] = 2**256 - 1
+  target = 0
+
+Note: Callstack:
+Note:
+Note that array aliasing is not supported, therefore all mapping information is erased after a mapping local variable/parameter is assigned.
+You can re-introduce information using require().
+
+Note: Callstack:
+Note:
+Note that array aliasing is not supported, therefore all mapping information is erased after a mapping local variable/parameter is assigned.
+You can re-introduce information using require().
+
+### Vulnerability Context
+The violated property, arithmetic overflow, occurs when a value exceeds the maximum limit for a data type, causing it to wrap around to a small value. A common approach to trigger an overflow is to add or multiply values that exceed the type's limit.
+
+### Background  
+Real-world vulnerabilities often involve multiple interactions rather than a single self-contained function call. The reproduction contract should reflect this by structuring the exploit as a series of interactions instead of executing it immediately.  
+
+### Task  
+Generate a **realistic** reproduction smart contract named `Reproduction` that interacts with the vulnerable contract to re-trigger the identified vulnerability. If the vulnerable contract calls an external contract through an interface, `Reproduction` **must inherit from that interface** and implement all required functions.  
+
+### Requirements  
+- **Utilize the counterexample and vulnerability context:**  
+  - Extract key function calls, transaction sequence, and final violation conditions.  
+  - Structure the exploit accordingly, ensuring it includes all necessary elements to trigger the issue.  
+- **Maintain Solidity compatibility:** The reproduction contract must match the Solidity version of the source contract and be compilable alongside it.  
+- **Decomposed contract structure:**  
+    - Use an interface-separated (Interaction-Separated)  pattern, where sequential interactions are needed rather than a single function that fully encapsulates the exploit.  Implement separate functions for setup, triggering the vulnerability, and interacting with the vulnerable contract.  
+- **Strict output format:** Output only Solidity code. Do not include explanations, comments, or justifications.  
+
+### Generate the reproduction contract

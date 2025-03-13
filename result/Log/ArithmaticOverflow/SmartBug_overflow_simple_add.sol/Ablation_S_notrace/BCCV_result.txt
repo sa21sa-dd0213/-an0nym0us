@@ -1,0 +1,29 @@
+Overflow (resulting value larger than 2**256 - 1) happens here.
+Counterexample:
+balanceee = 1
+deposit = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+
+Transaction trace:
+Overflow_Add.constructor()
+State: balanceee = 1
+Overflow_Add.add(115792089237316195423570985008687907853269984665640564039457584007913129639935)
+ --> origin.sol:8:9:
+  |
+8 |         balanceee += deposit;
+  |         ^^^^^^^^^^^^^^^^^^^^
+
+Overflow (resulting value larger than 2**256 - 1) happens here.
+Counterexample:
+sellerBalance = 1, vulnerableContract = 0
+deposit = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+
+Transaction trace:
+Reproduction.constructor(0x0)
+State: sellerBalance = 0, vulnerableContract = 0
+Reproduction.add(1)
+State: sellerBalance = 1, vulnerableContract = 0
+Reproduction.add(115792089237316195423570985008687907853269984665640564039457584007913129639935)
+  --> origin.sol:36:9:
+   |
+36 |         sellerBalance += deposit;
+   |  

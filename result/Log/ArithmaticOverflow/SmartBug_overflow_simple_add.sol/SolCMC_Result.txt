@@ -1,0 +1,13 @@
+Overflow (resulting value larger than 2**256 - 1) happens here.
+Counterexample:
+balance = 1
+deposit = 115792089237316195423570985008687907853269984665640564039457584007913129639935
+
+Transaction trace:
+Overflow_Add.constructor()
+State: balance = 1
+Overflow_Add.add(115792089237316195423570985008687907853269984665640564039457584007913129639935)
+ --> origin.sol:8:9:
+  |
+8 |         balance += deposit;
+  |         ^^^^^^^^^^^^^^^^^^

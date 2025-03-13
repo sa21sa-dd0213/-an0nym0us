@@ -1,0 +1,14 @@
+[Counterexample]
+
+---------------------------------------------------------------------
+
+[Counterexample]
+
+State 13  thread 0
+----------------------------------------------------
+Violated property:
+
+  division by zero
+  z != 0
+
+VERIFICATION FAILED

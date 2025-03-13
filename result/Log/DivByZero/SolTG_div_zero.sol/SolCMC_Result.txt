@@ -1,0 +1,10 @@
+Division by zero happens here.
+Counterexample:
+z = 0, x = 0
+
+Transaction trace:
+C.constructor()
+ --> origin.sol:5:11:
+  |
+5 |     uint x = 2 / z;
+  |              ^^^^^

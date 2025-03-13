@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 81 file origin.sol line 37 function invariant thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 37 function invariant
+  assertion
+  this->$balance != this->saved
+
+VERIFICATION FAILED
+
+Bug found (k = 2)

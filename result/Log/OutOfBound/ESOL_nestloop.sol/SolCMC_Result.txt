@@ -1,0 +1,107 @@
+Out of bounds access happens here.
+Counterexample:
+a = []
+array_size = 2
+i = 0
+j = 1
+min = 0
+temp = 0
+
+Transaction trace:
+Base.constructor()
+State: a = []
+Base.SelectionSort(2)
+  --> origin.sol:15:21:
+   |
+15 |                 if (a[j] < a[min]) min = j;
+   |                     ^^^^
+
+Out of bounds access happens here.
+Counterexample:
+a = []
+array_size = 2
+i = 0
+j = 1
+min = 0
+temp = 0
+
+Transaction trace:
+Base.constructor()
+State: a = []
+Base.SelectionSort(2)
+  --> origin.sol:15:28:
+   |
+15 |                 if (a[j] < a[min]) min = j;
+   |                            ^^^^^^
+
+Out of bounds access happens here.
+Counterexample:
+a = []
+array_size = 2
+i = 0
+j = 2
+min = 0
+temp = 0
+
+Transaction trace:
+Base.constructor()
+State: a = []
+Base.SelectionSort(2)
+  --> origin.sol:17:20:
+   |
+17 |             temp = a[i];
+   |                    ^^^^
+
+Out of bounds access happens here.
+Counterexample:
+a = []
+array_size = 2
+i = 0
+j = 2
+min = 0
+temp = 0
+
+Transaction trace:
+Base.constructor()
+State: a = []
+Base.SelectionSort(2)
+  --> origin.sol:18:13:
+   |
+18 |             a[i] = a[min];
+   |             ^^^^
+
+Out of bounds access happens here.
+Counterexample:
+a = []
+array_size = 2
+i = 0
+j = 2
+min = 0
+temp = 0
+
+Transaction trace:
+Base.constructor()
+State: a = []
+Base.SelectionSort(2)
+  --> origin.sol:18:20:
+   |
+18 |             a[i] = a[min];
+   |                    ^^^^^^
+
+Out of bounds access happens here.
+Counterexample:
+a = []
+array_size = 2
+i = 0
+j = 2
+min = 0
+temp = 0
+
+Transaction trace:
+Base.constructor()
+State: a = []
+Base.SelectionSort(2)
+  --> origin.sol:19:13:
+   |
+19 |             a[min] = temp;
+   |             ^^^^^^

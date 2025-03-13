@@ -1,0 +1,11 @@
+Overflow (resulting value larger than 2**256 - 1) happens here.
+  --> origin.sol:33:9:
+   |
+33 |         balanceOf[_to] += _value;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^
+Note: Counterexample:
+  <result> = 0x010000000000000000000000000000000000000000000000000000000000000026
+  _to = 1
+  _value = 21277
+  balanceOf[_to] = 0xFFFFffffFFFFffffFFFFffffFFFFffffFFFFffffFFFFffffFFFFffffFFFFad09
+  balanceOf[msg.sender] = 2**256 - 1

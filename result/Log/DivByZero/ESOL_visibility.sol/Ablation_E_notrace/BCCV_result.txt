@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 6 file origin.sol line 7 function div_zero thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 7 function div_zero
+  division by zero
+  (signed int)this->x - 2 != 0
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

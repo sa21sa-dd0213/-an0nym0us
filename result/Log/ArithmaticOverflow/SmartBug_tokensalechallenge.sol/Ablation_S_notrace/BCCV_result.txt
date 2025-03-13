@@ -1,0 +1,5 @@
+Overflow (resulting value larger than 2**256 - 1) happens here.
+  --> origin.sol:17:30:
+   |
+17 |         require(msg.value == numTokens * PRICE_PER_TOKEN);
+   |     

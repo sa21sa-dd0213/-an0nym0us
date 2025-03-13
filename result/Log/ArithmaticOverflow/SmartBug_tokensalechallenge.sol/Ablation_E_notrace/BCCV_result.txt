@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 66 file origin.sol line 12 function buy thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 12 function buy
+  arithmetic overflow on add
+  !overflow("+", this->balanceOf[(signed long int)return_value$__address$1], numTokens)
+
+VERIFICATION FAILED
+
+Bug found (k = 2)

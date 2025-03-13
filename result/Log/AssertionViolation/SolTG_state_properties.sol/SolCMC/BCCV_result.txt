@@ -1,0 +1,20 @@
+Assertion violation happens here.
+Counterexample:
+x = 2, y = 4
+
+Transaction trace:
+Robot.constructor()
+State: x = 0, y = 0
+Robot.moveRightUp()
+State: x = 1, y = 1
+Robot.moveRightUp()
+State: x = 2, y = 2
+Robot.moveRightUp()
+State: x = 3, y = 3
+Robot.moveLeftUp()
+State: x = 2, y = 4
+Robot.reach_2_4()
+  --> origin.sol:30:5:
+   |
+30 |     assert(!(x == 2 && y == 4));
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^

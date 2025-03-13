@@ -1,0 +1,17 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.4.26;
+
+contract MyContract {
+    uint8 x;
+
+    function func_underflow() external {
+      x = 1;
+      --x;
+      --x;
+      assert(x < 5);
+    }
+}
+
+Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

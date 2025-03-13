@@ -1,0 +1,83 @@
+### Role  
+You are a blockchain security expert specializing in analyzing vulnerabilities in smart contracts using formal verification.  
+
+### Source Program  
+Below is the source code of a Solidity program that has been proven to be vulnerable:  
+pragma solidity ^0.8.0;
+
+contract C5 {
+     uint x;
+	constructor(uint a, uint b) {
+		if (b > a) {
+			x = b;
+			return;
+		}
+		else {
+			x = a;
+			return;
+		}
+	}
+
+    function f5(uint _x) public {
+        uint a = 3;
+        if (x > 2) {
+            a = 5;
+        }
+        x = _x;
+        assert(a == 3);
+    }
+
+    function g5(uint _x, uint _y) public {
+        if (_x > _y) {
+            x = _x;
+        }else{
+            x = _y;
+        }
+        if (x > 100){
+            x = x - 100;
+        }
+    }
+}
+
+### Counterexample  
+The verifier ESBMC identified a assertion fail in this program and generated a counterexample detailing the state changes, transaction sequence, violated property, and location of the final violation state:  
+[Counterexample]
+
+State 6  thread 0
+----------------------------------------------------
+  _ESBMC_Object_C5 = { .x=0xFFFEFFFE7FEFF7FFFFC7FEFBFFFF7FFB9F5BF77FEFFFDDEED2B4FF7FFF61FEFF, .codehash=0,
+    .balance=0, .anon_pad$3=0, .address=0,
+    .anon_pad$5=0 }
+
+State 7 file origin.sol line 21 function f5 thread 0
+----------------------------------------------------
+  this->x = 1099511627776 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001 00000000 00000000 00000000 00000000 00000000)
+
+State 8 file origin.sol line 22 function f5 thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 22 function f5
+  assertion
+  a == 3
+
+VERIFICATION FAILED
+
+### Vulnerability Context
+The violated property, assertion violation, occurs when an assert statement fails, causing the contract to revert due to an unexpected condition. A common approach to trigger an assertion violation is to provide inputs that force the contract into an invalid state where an assert(condition) fails.
+
+### Background  
+Real-world vulnerabilities often involve multiple interactions rather than a single self-contained function call. The reproduction contract should reflect this by structuring the exploit as a series of interactions instead of executing it immediately.  
+
+### Task  
+Generate a **realistic** reproduction smart contract named `Reproduction` that interacts with the vulnerable contract to re-trigger the identified vulnerability. If the vulnerable contract calls an external contract through an interface, `Reproduction` **must inherit from that interface** and implement all required functions.  
+
+### Requirements  
+- **Utilize the counterexample and vulnerability context:**  
+  - Extract key function calls, transaction sequence, and final violation conditions.  
+  - Structure the exploit accordingly, ensuring it includes all necessary elements to trigger the issue.  
+- **Maintain Solidity compatibility:** The reproduction contract must match the Solidity version of the source contract and be compilable alongside it.  
+- **Decomposed contract structure:**  
+    - Use an interface-separated (Interaction-Separated)  pattern, where sequential interactions are needed rather than a single function that fully encapsulates the exploit.  Implement separate functions for setup, triggering the vulnerability, and interacting with the vulnerable contract.  
+- **Strict output format:** Output only Solidity code. Do not include explanations, comments, or justifications.  
+
+### Generate the reproduction contract

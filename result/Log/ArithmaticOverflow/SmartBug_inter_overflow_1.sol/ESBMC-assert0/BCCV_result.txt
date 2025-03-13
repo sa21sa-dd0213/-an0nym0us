@@ -1,0 +1,10 @@
+[Counterexample]
+
+State 20 file origin.sol line 8 function run thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 8 function run
+  assertion
+  0
+
+VERIFICATION FAILED

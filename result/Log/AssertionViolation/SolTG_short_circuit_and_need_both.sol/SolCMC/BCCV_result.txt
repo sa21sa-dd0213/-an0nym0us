@@ -1,0 +1,18 @@
+Assertion violation happens here.
+Counterexample:
+x = 3
+
+Transaction trace:
+cs4.constructor()
+State: x = 0
+cs4.f()
+State: x = 1
+cs4.f()
+State: x = 2
+cs4.f()
+State: x = 3
+cs4.g()
+ --> origin.sol:9:3:
+  |
+9 |             assert(x <= 2);
+  |             ^^^^^^^^^^^^^^

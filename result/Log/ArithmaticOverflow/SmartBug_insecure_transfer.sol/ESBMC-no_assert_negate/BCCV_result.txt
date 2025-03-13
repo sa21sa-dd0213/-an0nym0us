@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 17 file origin.sol line 10 function transfer thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 10 function transfer
+  arithmetic overflow on sub
+  !overflow("-", this->balanceOf[(signed long int)return_value$__address$3], _value)
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

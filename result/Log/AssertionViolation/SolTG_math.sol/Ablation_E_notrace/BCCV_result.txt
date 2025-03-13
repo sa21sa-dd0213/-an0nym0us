@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 5 file origin.sol line 27 function min thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 27 function min
+  assertion
+  0
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

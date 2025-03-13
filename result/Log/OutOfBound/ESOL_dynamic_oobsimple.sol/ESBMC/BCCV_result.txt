@@ -1,0 +1,15 @@
+[Counterexample]
+
+State 15 file origin.sol line 6 function dyn_array_oob_simple thread 0
+----------------------------------------------------
+  a = 0
+
+State 22 file origin.sol line 7 function dyn_array_oob_simple thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 7 function dyn_array_oob_simple
+  dereference failure: NULL pointer
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

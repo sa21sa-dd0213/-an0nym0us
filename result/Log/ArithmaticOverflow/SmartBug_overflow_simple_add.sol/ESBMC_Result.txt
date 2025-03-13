@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 9 file origin.sol line 8 function add thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 8 function add
+  arithmetic overflow on add
+  !overflow("+", this->balance, deposit)
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

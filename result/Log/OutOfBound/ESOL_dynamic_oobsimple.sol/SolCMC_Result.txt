@@ -1,0 +1,13 @@
+Out of bounds access happens here.
+Counterexample:
+
+n = 0
+a = []
+
+Transaction trace:
+MyContract.constructor()
+MyContract.dyn_array_oob_simple(0)
+ --> origin.sol:7:5:
+  |
+7 |     a[0] = 100;
+  |     ^^^^

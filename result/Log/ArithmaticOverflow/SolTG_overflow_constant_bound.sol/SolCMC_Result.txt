@@ -1,0 +1,12 @@
+Overflow (resulting value larger than 2**256 - 1) happens here.
+Counterexample:
+
+amount = 115792089237316195423570985008687907853269984665640564039457584007913129638936
+
+Transaction trace:
+OverflowVulnerable.constructor(){ msg.sender: 0x08bf }
+OverflowVulnerable.deposit(115792089237316195423570985008687907853269984665640564039457584007913129638936){ msg.sender: 0x08bf }
+  --> origin.sol:17:9:
+   |
+17 |         balances[msg.sender] += amount;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

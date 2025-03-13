@@ -1,0 +1,13 @@
+Overflow (resulting value larger than 255) happens here.
+Counterexample:
+
+a = 255
+b = 255
+c = 0
+
+Transaction trace:
+_MAIN_.constructor()
+ --> origin.sol:9:19:
+  |
+9 |         uint8 c = a + b;
+  |                   ^^^^^

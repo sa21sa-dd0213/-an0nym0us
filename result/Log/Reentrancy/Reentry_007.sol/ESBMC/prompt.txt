@@ -1,0 +1,66 @@
+### Role  
+You are a blockchain security expert specializing in analyzing vulnerabilities in smart contracts using formal verification.  
+
+### Source Program  
+Below is the source code of a Solidity program that has been proven to be vulnerable:  
+//https://github.com/fsainas/contracts-verification-benchmark/blob/main/contracts/bank/
+//SPDX-License-Identifier: UNLICENSED
+pragma solidity >= 0.8.2;
+
+/// @custom:version conformant to specification
+contract Bank {
+    mapping (address => uint) balances;
+
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    function withdraw(uint amount) public {
+        /// @custom:preghost function withdraw
+        uint old_user_balance = address(msg.sender).balance;
+        require(amount > 0);
+        // require(amount <= balances[msg.sender]);
+
+        balances[msg.sender] -= amount;
+        (bool success,) = msg.sender.call{value: amount}("");
+        require(success);
+        /// @custom:postghost function withdraw
+        uint new_user_balance = address(msg.sender).balance;
+        assert(new_user_balance == old_user_balance + amount);
+}
+}
+
+### Counterexample  
+The verifier ESBMC identified a reentrancy in this program and generated a counterexample detailing the state changes, transaction sequence, violated property, and location of the final violation state:  
+[Counterexample]
+
+State 5 file origin.sol line 24 function withdraw thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 24 function withdraw
+  assertion
+  new_user_balance == old_user_balance + amount
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+### Vulnerability Context
+The violated property, reentrancy, occurs when a contract makes an external call before updating its state, allowing an attacker to repeatedly enter the contract and manipulate execution. A common approach to trigger reentrancy is to call a function that interacts with an external contract that re-calls the vulnerable function before the first execution completes. This is typically achieved using a payable fallback function, which allows the attacker contract to receive funds and immediately reenter the vulnerable contract before the original execution is finalized.
+
+### Background  
+Real-world vulnerabilities often involve multiple interactions rather than a single self-contained function call. The reproduction contract should reflect this by structuring the exploit as a series of interactions instead of executing it immediately.  
+
+### Task  
+Generate a **realistic** reproduction smart contract named `Reproduction` that interacts with the vulnerable contract to re-trigger the identified vulnerability. If the vulnerable contract calls an external contract through an interface, `Reproduction` **must inherit from that interface** and implement all required functions.  
+
+### Requirements  
+- **Utilize the counterexample and vulnerability context:**  
+  - Extract key function calls, transaction sequence, and final violation conditions.  
+  - Structure the exploit accordingly, ensuring it includes all necessary elements to trigger the issue.  
+- **Maintain Solidity compatibility:** The reproduction contract must match the Solidity version of the source contract and be compilable alongside it.  
+- **Decomposed contract structure:**  
+    - Use an interface-separated (Interaction-Separated)  pattern, where sequential interactions are needed rather than a single function that fully encapsulates the exploit.  Implement separate functions for setup, triggering the vulnerability, and interacting with the vulnerable contract.  
+- **Strict output format:** Output only Solidity code. Do not include explanations, comments, or justifications.  
+
+### Generate the reproduction contract

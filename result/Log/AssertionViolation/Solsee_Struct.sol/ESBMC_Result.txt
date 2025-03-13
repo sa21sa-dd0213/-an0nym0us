@@ -1,0 +1,16 @@
+[Counterexample]
+
+State 14 file origin.sol line 19 function test thread 0
+----------------------------------------------------
+  happy.dd = 2 
+
+State 16 file origin.sol line 24 function test thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 24 function test
+  assertion
+  happy.cc + happy.dd == 4
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

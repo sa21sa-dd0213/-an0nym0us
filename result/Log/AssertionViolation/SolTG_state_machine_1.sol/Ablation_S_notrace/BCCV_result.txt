@@ -1,0 +1,14 @@
+Assertion violation happens here.
+Counterexample:
+x = 100
+
+Transaction trace:
+Csm1.constructor()
+State: x = 0
+Csm1.j()
+State: x = 100
+Csm1.i()
+  --> origin.sol:29:3:
+   |
+29 |            assert(x < 2);
+   |            ^^^^^^^^^^^^^
