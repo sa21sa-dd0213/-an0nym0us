@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 5 file origin.sol line 24 function withdraw thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 24 function withdraw
+  assertion
+  uint new_user_balance = balances[msg.sender]
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

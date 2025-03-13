@@ -1,0 +1,14 @@
+Assertion violation happens here.
+Counterexample:
+
+a = 0
+b = 0
+ = 0
+
+Transaction trace:
+Math.constructor()
+Math.min(0, 0)
+  --> origin.sol:27:13:
+   |
+27 |             assert(b>a);
+   |             ^^^^^^^^^^^

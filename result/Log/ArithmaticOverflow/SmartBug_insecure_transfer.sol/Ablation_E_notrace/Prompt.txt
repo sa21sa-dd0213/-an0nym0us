@@ -1,0 +1,20 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+
+pragma solidity ^0.8.0;
+
+contract IntegerOverflowAdd {
+    mapping (address => uint256) public balanceOf;
+
+    // INSECURE
+    function transfer(address _to, uint256 _value) public{
+        /* Check if sender has balance */
+        require(balanceOf[msg.sender] >= _value);
+        balanceOf[msg.sender] -= _value;
+        // <yes> <report> ARITHMETIC
+        balanceOf[_to] += _value;
+}
+
+}
+
+Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

@@ -1,0 +1,17 @@
+Assertion violation happens here.
+Counterexample:
+x = 2
+b = false
+
+Transaction trace:
+C.constructor()
+State: x = 0
+C.f()
+State: x = 1
+C.f()
+State: x = 2
+C.g(false)
+  --> origin.sol:13:3:
+   |
+13 |            assert(x < 2);
+   |            ^^^^^^^^^^^^^

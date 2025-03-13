@@ -1,0 +1,20 @@
+[Counterexample]
+
+State 6  thread 0
+----------------------------------------------------
+  _ESBMC_Object_C5 = { .x=0xFFFEFFFE7FEFF7FFFFC7FEFBFFFF7FFB9F5BF77FEFFFDDEED2B4FF7FFF61FEFF, .codehash=0,
+    .balance=0, .anon_pad$3=0, .address=0,
+    .anon_pad$5=0 }
+
+State 7 file origin.sol line 21 function f5 thread 0
+----------------------------------------------------
+  this->x = 1099511627776 (00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000001 00000000 00000000 00000000 00000000 00000000)
+
+State 8 file origin.sol line 22 function f5 thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 22 function f5
+  assertion
+  a == 3
+
+VERIFICATION FAILED

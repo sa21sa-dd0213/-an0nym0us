@@ -1,0 +1,14 @@
+Assertion violation happens here.
+Counterexample:
+end_donate = 0, goal = 0, owner = 0x0, saved = 38, done = true
+
+Transaction trace:
+Crowdfund.constructor(0x0, 0, 0)
+State: end_donate = 0, goal = 0, owner = 0x0, saved = 0, done = false
+Crowdfund.invstore(){ block.number: 115792089237316195423570985008687907853269984665640564039457584007913129611835 }
+State: end_donate = 0, goal = 0, owner = 0x0, saved = 38, done = true
+Crowdfund.invariant(0){ block.number: 115792089237316195423570985008687907853269984665640564039457584007913129618697 }
+  --> origin.sol:37:9:
+   |
+58 |         assert(address(this).balance != saved);
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

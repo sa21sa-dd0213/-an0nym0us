@@ -1,0 +1,10 @@
+Below is the source code of a Solidity program that has been proven to be vulnerable: 
+contract C  {
+	function f(int x, int y) public pure returns (int) {
+		require(x + y >= x);
+		return x + y;
+	}
+}
+
+Your task is to generate a reproduction smart contract that can re-trigger the vulnerability by interacting with the source program via a series of function calls.
+Generate the reproduction contract without any comments.

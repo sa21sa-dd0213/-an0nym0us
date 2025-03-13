@@ -1,0 +1,12 @@
+Underflow (resulting value less than 0) happens here.
+Counterexample:
+x = 0
+
+Transaction trace:
+MyContract.constructor()
+State: x = 0
+MyContract.func_underflow()
+  --> origin.sol:10:7:
+   |
+10 |       --x;
+   |       ^^^

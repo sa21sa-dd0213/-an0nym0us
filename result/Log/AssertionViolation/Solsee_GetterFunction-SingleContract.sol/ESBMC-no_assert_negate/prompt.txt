@@ -1,0 +1,73 @@
+### Role  
+You are a blockchain security expert specializing in analyzing vulnerabilities in smart contracts using formal verification.  
+
+### Source Program  
+Below is the source code of a Solidity program that has been proven to be vulnerable:  
+pragma solidity ^0.8.11;
+
+contract _MAIN_ {
+    uint public a;
+    uint public b;
+
+    function set() public {
+        a = 3;
+        b = 0;
+    }
+
+    function check() public {
+        uint _a = 0;
+        set();
+        _a = this.a();
+
+        require(_a == 3);
+
+        assert(_a == 4);
+    }
+}
+
+### Counterexample  
+The verifier ESBMC identified a assertion violation in this program and generated a counterexample detailing the state changes, transaction sequence, violated property, and location of the final violation state:  
+[Counterexample]
+
+State 6  thread 0
+----------------------------------------------------
+  _ESBMC_Object__MAIN_ = { .a = 0 }
+
+State 7 file origin.sol line 9 function set thread 0
+----------------------------------------------------
+  this->b = 0 
+
+State 8 file origin.sol line 15 function check thread 0
+----------------------------------------------------
+  _a = 3 
+
+State 10 file origin.sol line 19 function check thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 19 function check
+  assertion
+  _a == 4
+
+VERIFICATION FAILED
+
+Bug found (k = 1)
+
+### Vulnerability Context
+The violated property, assertion violation, occurs when an assert statement fails, causing the contract to revert due to an unexpected condition. A common approach to trigger an assertion violation is to provide inputs that force the contract into an invalid state where an assert(condition) fails.
+
+### Background  
+Real-world vulnerabilities often involve multiple interactions rather than a single self-contained function call. The reproduction contract should reflect this by structuring the exploit as a series of interactions instead of executing it immediately.  
+
+### Task  
+Generate a **realistic** reproduction smart contract named `Reproduction` that interacts with the vulnerable contract to re-trigger the identified vulnerability. If the vulnerable contract calls an external contract through an interface, `Reproduction` **must inherit from that interface** and implement all required functions.  
+
+### Requirements  
+- **Utilize the counterexample and vulnerability context:**  
+  - Extract key function calls, transaction sequence, and final violation conditions.  
+  - Structure the exploit accordingly, ensuring it includes all necessary elements to trigger the issue.  
+- **Maintain Solidity compatibility:** The reproduction contract must match the Solidity version of the source contract and be compilable alongside it.  
+- **Decomposed contract structure:**  
+    - Use an interface-separated (Interaction-Separated)  pattern, where sequential interactions are needed rather than a single function that fully encapsulates the exploit.  Implement separate functions for setup, triggering the vulnerability, and interacting with the vulnerable contract.  
+- **Strict output format:** Output only Solidity code. Do not include explanations, comments, or justifications.  
+
+### Generate the reproduction contract

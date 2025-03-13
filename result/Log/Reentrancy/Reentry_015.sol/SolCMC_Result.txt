@@ -1,0 +1,15 @@
+Assertion violation happens here.
+Counterexample:
+token = 0, ever_deposited = false, sent = 1, initial_deposit = 0, _count_deposit = 0
+
+Transaction trace:
+TokenTransfer.constructor(0)
+State: token = 0, ever_deposited = false, sent = 0, initial_deposit = 0, _count_deposit = 0
+TokenTransfer.withdraw(1){ msg.sender: 0x6dc4 }
+    token.transfer(msg.sender, amount) -- untrusted external call
+State: token = 0, ever_deposited = false, sent = 1, initial_deposit = 0, _count_deposit = 0
+TokenTransfer.invariant()
+   --> origin.sol:219:7:
+    |
+219 |       assert(sent <= initial_deposit);
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

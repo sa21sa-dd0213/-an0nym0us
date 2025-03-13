@@ -1,0 +1,21 @@
+Underflow (resulting value less than 0) happens here.
+Counterexample:
+totalSupply = 0
+_to = 0x0
+_value = 1
+ = false
+
+Transaction trace:
+Token.constructor(0){ msg.sender: 0x6dc4 }
+State: totalSupply = 0
+Token.transfer(0x0, 1){ msg.sender: 0x1712 }
+  --> origin.sol:14:17:
+   |
+14 |         require(balances[msg.sender] - _value >= 0);
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Underflow (resulting value less than 0) check is safe!
+  --> origin.sol:15:9:
+   |
+15 |         balances[msg.sender] -= _value;
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

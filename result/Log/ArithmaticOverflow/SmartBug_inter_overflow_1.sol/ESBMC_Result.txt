@@ -1,0 +1,12 @@
+[Counterexample]
+
+file origin.sol line 7 function add
+------------------------
+Violated property:
+  file origin.sol line 7 function add
+  arithmetic overflow on add
+  !overflow("+", this->sellerBalance, value)
+
+VERIFICATION FAILED
+
+Bug found (k = 3)

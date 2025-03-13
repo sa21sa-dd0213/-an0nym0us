@@ -1,0 +1,12 @@
+[Counterexample]
+
+State 16 file origin.sol line 7 function Base thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 7 function Base
+  dereference failure: NULL pointer
+  this->test2[1] == 0
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

@@ -1,0 +1,20 @@
+[Counterexample]
+
+State 15 file origin.sol line 10 function func_overflow thread 0
+----------------------------------------------------
+  this->_x = 100 (01100100)
+
+State 17 file origin.sol line 12 function func_overflow thread 0
+----------------------------------------------------
+  this->sum = (unsigned char)((signed int)(_ESBMC_Object_MyContract WITH [_y:=240])._x + 240)
+
+State 18 file origin.sol line 13 function func_overflow thread 0
+----------------------------------------------------
+Violated property:
+  file origin.sol line 13 function func_overflow
+  assertion
+  (signed int)this->sum > 100
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

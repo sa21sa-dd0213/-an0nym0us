@@ -1,0 +1,13 @@
+Assertion violation happens here.
+Counterexample:
+r = 0
+x = 5
+
+Transaction trace:
+Loop1.constructor()
+State: r = 0
+Loop1.enter()
+  --> origin.sol:18:5:
+   |
+18 |     assert (x == r);
+   |     ^^^^^^^^^^^^^^^

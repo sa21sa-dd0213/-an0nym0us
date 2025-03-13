@@ -1,0 +1,16 @@
+Division by zero happens here.
+Counterexample:
+coefficient = 0, DailyWage = 100, boss = 0x0
+dayNumber = 0
+baseWage = 0
+
+Transaction trace:
+getWageNumber.constructor(){ msg.sender: 0x0 }
+State: coefficient = 3, DailyWage = 100, boss = 0x0
+getWageNumber.setCoefficient(0){ msg.sender: 0x0 }
+State: coefficient = 0, DailyWage = 100, boss = 0x0
+getWageNumber.calculateWage(0){ msg.sender: 0x0 }
+  --> origin.sol:27:22:
+   |
+27 |            uint256 baseWage = DailyWage / coefficient;
+   |                               ^^^^^^^^^^^^^^^^^^^^^^^

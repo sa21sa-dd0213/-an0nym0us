@@ -1,0 +1,12 @@
+[Counterexample]
+
+file origin.sol line 18 function enter
+------------------------
+Violated property:
+  file origin.sol line 18 function enter
+  assertion
+  x == this->r
+
+VERIFICATION FAILED
+
+Bug found (k = 1)

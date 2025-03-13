@@ -1,0 +1,14 @@
+Out of bounds access happens here.
+Counterexample:
+i = 0
+n = 0
+a = []
+
+Transaction trace:
+MyContract.constructor()
+State: i = 0
+MyContract.dyn_array_oob_loop(0)
+  --> origin.sol:11:12:
+   |
+11 |     assert(a[0] == 100);
+   |            ^^^^
