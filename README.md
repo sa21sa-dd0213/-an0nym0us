@@ -86,6 +86,7 @@ $ python3 VeriExploit.py [options]
 | `-w`, `--web`     | Use ChatGPT Web UI instead of API (Experimental)                                       |
 | `-c`, `--contract`| (ESBMC) Entry/Target contract                                                          |
 | `--function`      | (ESBMC) Entry/Target function                                                          |
+| `-a`, `--addition`| use additional solver's options (e.g. --cex-only)                                      |
 
 ### Supported Property
 
